@@ -1,0 +1,9 @@
+
+{% extends "testapp/base.html" %}
+{% load static %}
+{% block body_block %}
+<h1>You are Logged-out</h1>
+<p><a href="{% url 'account:login' %}">Login again here</a></p>  
+<h3>or</h3>
+<p>Click here to go to <a href="{% url 'proj:home' %}">Home</a> page</p>
+{% endblock %}

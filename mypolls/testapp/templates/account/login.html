@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Log-in{% endblock %}
+{% block content %}
+ <h1>Log-in</h1>
+ <p>Please Login to participate in the Poll</p>
+ {% if h %}
+ <p style="color:red">Please enter valid username and password</p>
+ {% endif %}
+ {% if f %}
+ <p style="color:red">Account doesn't exist,please <a href="{% url "proj:signup" %}">Signup</a> to create account</p>
+ {% endif %}
+ <form method="post">
+ {{ form.as_p }}
+ {% csrf_token %}
+ <p><input type="submit" value="Log in"></p>
+ </form>
+<p>If forgot password/username click <a href="{% url 'password_reset' %}">here</a>  </p>
+ <p>If new user click here to <a href="{% url 'proj:signup' %}">Signup</a> </p>
+{% endblock %}
